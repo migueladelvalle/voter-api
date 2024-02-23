@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "826f2cd2-a63d-4241-af53-3133cffb4843",
+		"name": "voter-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18172491"
+	},
+	"item": [
+		{
+			"name": "voters/health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/voters/health"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3000/voters/"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters/id create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\":\"{{$randomFullName}}\",\n    \"email\":\"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/voters"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters/id update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"{{$randomFullName}}\",\n    \"email\":\"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/voters/3"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters/id update Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/voters/3"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters/id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"{{$randomFullName}}\",\n    \"email\":\"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/voters/1"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters newVoterHistory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"vote_date\":\"{{rfc3339Time}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/voters/2/polls/1"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters newVoterHistory Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"vote_date\":\"{{rfc3339Time}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/voters/2/polls/1"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters newVoterHistory Copy 2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"vote_date\":\"{{rfc3339Time}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/voters/2/polls/2"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters getVoterHistory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"voter_id\":1,\n\t\"poll_id\":1,\n\t\"vote_id\":1,\n\t\"vote_date\":\"{{rfc3339Time}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/voters/1/polls/1"
+			},
+			"response": []
+		},
+		{
+			"name": "/voters getAllVoterHistory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"voter_id\":1,\n\t\"poll_id\":1,\n\t\"vote_id\":1,\n\t\"vote_date\":\"{{rfc3339Time}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/voters/2/polls/"
+			},
+			"response": []
+		}
+	]
+}
