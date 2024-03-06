@@ -37,20 +37,20 @@
 			"response": []
 		},
 		{
-			"name": "/voters/id create",
+			"name": "/voters/id create Copy",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 2,\n    \"name\":\"{{$randomFullName}}\",\n    \"email\":\"{{$randomEmail}}\"\n}",
+					"raw": "{\n    \"name\":\"{{$randomFullName}}\",\n    \"email\":\"{{$randomEmail}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "localhost:8080/voters"
+				"url": "localhost:3000/voters/2"
 			},
 			"response": []
 		},
@@ -187,14 +187,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"voter_id\":1,\n\t\"poll_id\":1,\n\t\"vote_id\":1,\n\t\"vote_date\":\"{{rfc3339Time}}\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "localhost:8080/voters/2/polls/"
+				"url": "localhost:3000/voters/2/polls/"
 			},
 			"response": []
 		}

@@ -22,12 +22,16 @@ func NewVoterHistoryDTO(id int, voteId int, voteDate time.Time, created time.Tim
 	}
 }
 
+func (v *VoterDTO) GetBlankHistory() VoterHistoryDTO {
+	return VoterHistoryDTO{}
+}
+
 func (v *VoterHistoryDTO) GetPollID() int {
 	return v.pollId
 }
 
 func (v *VoterHistoryDTO) GetVoteID() int {
-	return v.pollId
+	return v.voteId
 }
 
 func (v *VoterHistoryDTO) GetVoteDate() time.Time {

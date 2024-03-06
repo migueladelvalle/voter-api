@@ -26,6 +26,10 @@ func NewVoterDTO(id int, name string, email string, history HistoryMap, created 
 	}
 }
 
+func (v *VoterDTO) GetBlankVoter() VoterDTO {
+	return VoterDTO{}
+}
+
 func (v *VoterDTO) GetId() int {
 	return v.id
 }

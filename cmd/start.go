@@ -10,15 +10,18 @@ import (
 	"drexel.edu/voter-api/pkg/http/rest"
 	"drexel.edu/voter-api/pkg/process"
 	"drexel.edu/voter-api/pkg/retrieve"
-	"drexel.edu/voter-api/pkg/storage/json"
+	cache "drexel.edu/voter-api/pkg/storage/redis"
+
 	"github.com/spf13/cobra"
 )
 
 const (
-	defaultFilePath = "./Data"
+	defaultFilePath      = "./Data"
+	RedisDefaultLocation = "0.0.0.0:6379"
 )
 
 var port int
+var redisUrl string
 var jsonFilePath string
 
 // startCmd represents the start command
@@ -28,9 +31,11 @@ var startCmd = &cobra.Command{
 	Long:  `Allows the user to specify the port, otherwise uses 3000 by default`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		repository, err := json.NewJsonDB(jsonFilePath)
+		var repository *cache.VoterCache
+
+		repository, err := cache.New()
 		if err != nil {
-			panic(err)
+			panic("Couldn't connect to Redis")
 		}
 
 		processService := process.NewService(repository)
@@ -57,5 +62,6 @@ func init() {
 	// is called directly, e.g.:
 	// startCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	startCmd.Flags().IntVarP(&port, "port", "p", 3000, "The port on which to start the server")
+	startCmd.Flags().StringVarP(&jsonFilePath, "redisUrl", "r", RedisDefaultLocation, "The Redis URL, defaults to 0.0.0.0:6379")
 	startCmd.Flags().StringVarP(&jsonFilePath, "filePath", "f", defaultFilePath, "The file path to the Json DB")
 }

@@ -112,9 +112,8 @@ func (s *service) DeleteSingleVoterPoll(voterId int, pollId int) error {
 		return ErrInvalidId.Error()
 	}
 
-	s.r.DeleteSingleVoterPoll(voterId, pollId)
+	return s.r.DeleteSingleVoterPoll(voterId, pollId)
 
-	return nil
 }
 
 func isValidEmail(email string) bool {

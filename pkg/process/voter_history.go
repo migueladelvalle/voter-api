@@ -21,7 +21,7 @@ func (v *VoterHistoryDTO) GetPollID() int {
 }
 
 func (v *VoterHistoryDTO) GetVoteID() int {
-	return v.pollId
+	return v.voteId
 }
 
 func (v *VoterHistoryDTO) GetVoteDate() time.Time {
